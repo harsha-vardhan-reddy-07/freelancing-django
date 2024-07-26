@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/authenticate.css">
+
+{% endblock %}
+
+{% block content %}
+
+
+<div class="AuthenticatePage">
+
+    <div class="auth-navbar">
+      <a href="/"><h3 >SB Works</h3></a>
+      <a href="/"><p >Home</p></a>
+    </div>
+
+    <form class="authForm">
+        <h2>Login</h2>
+        <div class="form-floating mb-3 authFormInputs">
+            <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com"  />
+            <label htmlFor="floatingInput">Email address</label>
+        </div>
+            <div class="form-floating mb-3 authFormInputs">
+            <input type="password" class="form-control" id="floatingPassword" placeholder="Password" /> 
+            <label htmlFor="floatingPassword">Password</label>
+        </div>
+        <button type="submit" class="btn btn-primary" >Sign in</button>
+
+        <p>Not registered? <a href="/register"><span>Register</span></a></p>
+    </form>
+
+
+</div>
+
+
+{% endblock %}

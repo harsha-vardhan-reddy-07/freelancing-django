@@ -1,0 +1,79 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/admin/allApplications.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "admin/navbar.html" %}
+
+
+<div class="user-applications-page">
+      
+    <h3>All Applications</h3>
+
+    <div class="user-applications-body">
+
+    {% comment %} {applications.map((application)=>( {% endcomment %}
+
+        <div class="user-application">
+
+              <div class="user-application-body">
+
+                  <div class="user-application-half">
+
+                    <h4>{application.title}</h4>
+                        <p>{application.description}</p>
+                        <span>
+                          <h5>Skills</h5>
+                          <div class="application-skills">
+                            {% comment %} {application.requiredSkills.map((skill)=>( {% endcomment %}
+                              <p key={skill}>{skill}</p>
+                            
+                          </div>
+                        </span>
+                        <h6>Budget - &#8377; {application.budget}</h6>
+                        <h5><b>Client: </b> {application.clientName}</h5>
+                        <h5><b>Client Id: </b> {application.clientId}</h5>
+                        <h5><b>Client email: </b> {application.clientEmail}</h5>
+
+                  </div>
+
+                  <div class="vertical-line"></div>
+
+                  <div class="user-application-half"> 
+
+                    <span>
+                        <h5>Proposal</h5>
+                        <p>{application.proposal}</p>
+                      </span>
+                      <span>
+                          <h5>Skills</h5>
+                          <div class="application-skills">
+                          {% comment %} {application.freelancerSkills.map((skill)=>( {% endcomment %}
+                              <p key={skill} >{skill}</p>
+                          
+                          </div>
+                      </span>
+                      <h6>Proposed Budget - &#8377; {application.bidAmount}</h6>
+                      <h5><b>Freelancer: </b> {application.freelancerName}</h5>
+                      <h5><b>Freelancer Id: </b> {application.freelancerId}</h5>
+                      <h5><b>Freelancer email: </b> {application.freelancerEmail}</h5>
+                      <h6>Status: <b style={application.status==="Accepted" ? {color: "green"} : {} } >{application.status}</b></h6>
+
+                  </div>
+
+              </div>
+                <hr />
+              </div>
+    
+    
+        
+    </div>
+
+  </div>
+
+{% endblock %}

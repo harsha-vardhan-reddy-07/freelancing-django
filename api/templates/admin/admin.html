@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/admin/admin.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "admin/navbar.html" %}
+
+<div class="admin-page">
+    <div class="home-cards">
+
+      <div class="home-card">
+          <h4>All Projects</h4>
+          <p>{projectsCount}</p>
+          <button  >View projects</button>
+      </div>
+
+      <div class="home-card">
+          <h4>Completed projects</h4>
+          <p>{completedProsCount}</p>
+          <button>View projects</button>
+      </div>
+
+      <div class="home-card">
+          <h4>Applications</h4>
+          <p>{applicationsCount}</p>
+          <button>View Applications</button>
+      </div>
+
+      <div class="home-card">
+          <h4>Users</h4>
+          <p>{usersCount}</p>
+          <button >View Users</button>
+      </div>
+
+
+      </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/client/clientApplications.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "client/navbar.html" %}
+
+
+<div class="client-applications-page">
+    
+      <span>
+          <h3>Applications</h3>
+
+          <select class='form-control' >
+            <option value="">All Projects</option>
+            {% comment %} {projectTitles.map((title)=>( {% endcomment %}
+             <option key={title} value={title}>{title}</option>
+            
+          </select>
+
+      </span>
+
+
+    <div class="client-applications-body">
+
+
+        {% comment %} {displayApplications.map((application)=>( {% endcomment %}
+
+            <div class="client-application">
+
+                <div class="client-application-body">
+
+                    <div class="client-application-half">
+
+                          <h4>{application.title}</h4>
+                          <p>{application.description}</p>
+                          <span>
+                            <h5>Skills</h5>
+                            <div class="application-skills">
+                              {% comment %} {application.requiredSkills.map((skill)=>( {% endcomment %}
+                                <p key={skill}>{skill}</p>
+                              
+                            </div>
+                          </span>
+                          <h6>Budget - &#8377; {application.budget}</h6>
+
+                    </div>
+
+                    <div class="vertical-line"></div>
+
+                    <div class="client-application-half"> 
+
+                        <span>
+                          <h5>Proposal</h5>
+                          <p>{application.proposal}</p>
+                        </span>
+                        <span>
+                            <h5>Skills</h5>
+                            <div class="application-skills">
+                            {% comment %} {application.freelancerSkills.map((skill)=>( {% endcomment %}
+                                <p >{skill}</p>
+                              
+                            </div>
+                        </span>
+                        <h6>Proposed Budget - &#8377; {application.bidAmount}</h6>
+                        <div class="approve-btns">
+                          {% comment %} {application.status === 'Pending' ? {% endcomment %}
+                          
+                              <button class="btn btn-success">Approve</button>
+                              <button class="btn btn-danger" >Decline</button>
+                          
+                            <h6>Status: <b>{application.status}</b></h6>    
+                          
+                        </div>
+                    </div>
+
+                </div>
+                  <hr />
+            </div>
+        
+
+    </div>
+
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/client/newProject.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "client/navbar.html" %}
+
+<div class="new-project-page">
+
+    <h3>Post new project</h3>
+
+    <div class="new-project-form">
+
+        <div class="form-floating">
+          <input type="text" class="form-control mb-3" id="floatingPassword" placeholder="Password"  />
+          <label htmlFor="floatingPassword">Project title</label>
+        </div>
+
+        <div class="form-floating">
+          <textarea type="text" class="form-control mb-3" id="floatingPassword" placeholder="Password"/>
+          <label htmlFor="floatingPassword">Description</label>
+        </div>
+
+        <span>
+          <div class="form-floating">
+            <input type="number" class="form-control mb-3" id="floatingPassword" placeholder="Password"/>
+            <label htmlFor="floatingPassword">Budget (in &#8377;)</label>
+          </div>
+
+          <div class="form-floating">
+            <input type="text" class="form-control mb-3" id="floatingPassword" placeholder="Password"/>
+            <label htmlFor="floatingPassword">Required skills (seperate each with ,)</label>
+          </div>
+        </span>
+
+        <button class='btn' onClick={handleSubmit} >Submit</button>
+
+    </div>
+
+</div>
+
+{% endblock %}

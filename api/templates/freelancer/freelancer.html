@@ -1,0 +1,96 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/freelancer/freelancer.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "freelancer/navbar.html" %}
+
+<div class="freelancer-home">
+
+            
+    <div class="home-cards">
+
+      <div class="home-card">
+          <h4>Current projects</h4>
+          <p>{freelancerData.currentProjects.length}</p>
+          <button  >View projects</button>
+      </div>
+
+      <div class="home-card">
+          <h4>Completed projects</h4>
+          <p>{freelancerData.completedProjects.length}</p>
+          <button >View projects</button>
+      </div>
+
+      <div class="home-card">
+          <h4>Applications</h4>
+          <p>{applicationsCount.length}</p>
+          <button>View Applications</button>
+      </div>
+
+      <div class="home-card">
+          <h4>Funds</h4>
+          <p>Available:  &#8377; {freelancerData.funds}</p>
+           {% comment %} <button>Withdraw</button>  {% endcomment %}
+      </div>
+
+    </div>
+
+
+    <div class="freelancer-details">
+
+              <div class="freelancer-details-data">
+
+                  <span>
+                    <h4>My Skills</h4>
+                    <div class="skills">
+                    {% comment %} {skills.map((skill)=>( {% endcomment %}
+                      <h5 class='skill' key={skill}>{skill}</h5>
+                 
+                    {% comment %} {skills.length === 0 ? {% endcomment %}
+                      <p>No skills available</p>
+                 
+                    </div>
+                  </span>
+
+                  <span>
+                    <h4>Description</h4>
+                    <p>{description}</p>
+                    {% comment %} {description === '' ? {% endcomment %}
+                      <p>please add your description</p>
+                   
+                  </span>
+
+                  <button class='btn btn-outline-success'  >Update</button>
+
+              </div>
+        
+        
+
+            <div class="freelancer-details-update">
+
+                  <span>
+                    <label htmlFor="mySkills"><h4>My Skills</h4></label>
+                    <input type="text" class='form-control' id='mySkills' placeholder='Enter skills' />
+                  </span>
+
+                  <span>
+                    <label htmlFor="description-textarea"><h4>Description</h4></label>
+                    <textarea class='form-control' id="description-textarea" placeholder='Enter your description' ></textarea>
+                  </span>
+
+                  <button class='btn btn-outline-success mt-3' >Update</button>
+            </div>
+        
+    </div>
+
+
+
+</div>
+
+{% endblock %}

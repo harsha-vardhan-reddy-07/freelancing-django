@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/admin/allUsers.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "admin/navbar.html" %}
+
+<div className="all-users-page">
+
+    <h3>All Users</h3>
+
+    <div className="all-users">
+
+      {% comment %} {users.map((user)=>( {% endcomment %}
+
+        <div className="user">
+            <span>
+              <b>User Id</b>
+              <p>{user._id}</p>
+            </span>
+            <span>
+              <b>Username</b>
+              <p>{user.username}</p>
+            </span>
+            <span>
+              <b>Email</b>
+              <p>{user.email}</p>
+            </span>
+            <span>
+              <b>User Role</b>
+              <p>{user.usertype}</p>
+            </span>
+
+        </div>
+
+      
+
+    </div>
+
+  </div>
+
+{% endblock %}

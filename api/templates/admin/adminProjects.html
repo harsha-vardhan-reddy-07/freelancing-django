@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block styleLink %}
+
+<link rel="stylesheet" href="/static/css/freelancer/allProjects.css">
+
+{% endblock %}
+
+{% block content %}
+
+{% include "admin/navbar.html" %}
+
+<div class="all-projects-page">
+
+    <div class="project-filters">
+
+      <h3>Filters</h3>
+      <hr />
+
+      <div class="filters">
+        <h5>Skills</h5>
+
+        {% comment %} {allSkills.length > 0 ?  {% endcomment %}
+        
+            <div class="filter-options">
+
+                {% comment %} {allSkills.map((skill)=>( {% endcomment %}
+                  <div class="form-check" key={skill}>
+                    <input class="form-check-input" type="checkbox" value={skill} id="flexCheckDefault" onChange={handleCategoryCheckBox} />
+                    <label class="form-check-label" htmlFor="flexCheckDefault">{skill}</label>
+                  </div>
+                
+
+            </div>
+      
+      </div>
+
+    </div>
+
+    <div class="projects-list">
+
+      <h3>All projects</h3>
+      <hr />
+
+      {% comment %} {displayprojects.map((project)=>( {% endcomment %}
+
+          <div class="listed-project" key={project._id}  >
+            <div class='listed-project-head'>
+                <h3>{project.title}</h3>
+                <p>{project.postedDate}</p>
+            </div>
+            <h5>Budget &#8377; {project.budget}</h5>
+            <h5>Client name: {project.clientName}</h5>
+            <h5>Client email: {project.clientEmail}</h5>
+            <p>{project.description}</p>
+            <div class="skills">
+              
+                {% comment %} project.skills.map((skill)=>( {% endcomment %}
+                  <h6 key={skill} >{skill}</h6>
+       
+            </div>
+
+            <div class="bids-data">
+              <p>{project.bids.length} bids</p>
+              <h6>&#8377;</h6>
+            </div>
+            <h5>Status - {project.status}</h5>
+            <hr />
+          </div>
+
+
+
+    </div>
+
+  </div>
+
+{% endblock %}
