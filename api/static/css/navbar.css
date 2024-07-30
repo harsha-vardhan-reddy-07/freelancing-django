@@ -8,6 +8,10 @@
     /* background-color: #141414; */
 }
 
+.navbar a{
+    text-decoration: none;
+}
+
 .navbar h3{
 
     color: #ee4950;

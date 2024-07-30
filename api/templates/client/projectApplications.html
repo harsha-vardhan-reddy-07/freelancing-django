@@ -10,18 +10,10 @@
 
 {% include "client/navbar.html" %}
 
-
 <div class="client-applications-page">
     
       <span>
           <h3>Applications</h3>
-
-          <select class='form-control' >
-            <option value="">All Projects</option>
-            {% comment %} {projectTitles.map((title)=>( {% endcomment %}
-             <option key={title} value={title}>{title}</option>
-            
-          </select>
 
       </span>
 
@@ -29,7 +21,7 @@
     <div class="client-applications-body">
 
 
-        {% comment %} {displayApplications.map((application)=>( {% endcomment %}
+        {% for application in applications %}
 
             <div class="client-application">
 
@@ -37,17 +29,17 @@
 
                     <div class="client-application-half">
 
-                          <h4>{application.title}</h4>
-                          <p>{application.description}</p>
+                          <h4>{{application.title}}</h4>
+                          <p>{{application.description}}</p>
                           <span>
                             <h5>Skills</h5>
                             <div class="application-skills">
-                              {% comment %} {application.requiredSkills.map((skill)=>( {% endcomment %}
-                                <p key={skill}>{skill}</p>
-                              
+                              {% for skill in application.requiredSkills %}
+                                <p>{{skill}}</p>
+                              {% endfor %}
                             </div>
                           </span>
-                          <h6>Budget - &#8377; {application.budget}</h6>
+                          <h6>Budget - &#8377; {{application.budget}}</h6>
 
                     </div>
 
@@ -57,31 +49,33 @@
 
                         <span>
                           <h5>Proposal</h5>
-                          <p>{application.proposal}</p>
+                          <p>{{application.proposal}}</p>
                         </span>
                         <span>
                             <h5>Skills</h5>
                             <div class="application-skills">
-                            {% comment %} {application.freelancerSkills.map((skill)=>( {% endcomment %}
-                                <p >{skill}</p>
-                              
+                            {% for skill in application.freelancerSkills %}
+                                <p >{{skill}}</p>
+                            {% endfor %}
                             </div>
                         </span>
-                        <h6>Proposed Budget - &#8377; {application.bidAmount}</h6>
+                        <h6>Proposed Budget - &#8377; {{application.bidAmount}}</h6>
                         <div class="approve-btns">
-                          {% comment %} {application.status === 'Pending' ? {% endcomment %}
+                          {% if application.status == 'Pending' %}
                           
-                              <button class="btn btn-success">Approve</button>
-                              <button class="btn btn-danger" >Decline</button>
-                          
-                            <h6>Status: <b>{application.status}</b></h6>    
-                          
+                              <a href="/approve-application/{{application.id}}"><button class="btn btn-success">Approve</button></a>
+                              <a href="/reject-application/{{application.id}}"><button class="btn btn-danger" >Decline</button></a>
+                          {% else %}
+                            <h6>Status: <b>{{application.status}}</b></h6>    
+                          {% endif %}
                         </div>
                     </div>
 
                 </div>
                   <hr />
             </div>
+
+            {% endfor %}
         
 
     </div>

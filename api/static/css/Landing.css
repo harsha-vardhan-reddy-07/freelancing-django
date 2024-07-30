@@ -4,6 +4,7 @@
     width: 100%;
     margin: 0;
     padding: 0;
+    
 }
 
 .landing-page a{
@@ -12,7 +13,7 @@
 
 .landing-hero{
 
-    background: url('../images/landing-bg.jpg');
+    background: url('../img/landing-bg.jpg');
     height: 100vh;
     width: 100%;
     background-position: center;

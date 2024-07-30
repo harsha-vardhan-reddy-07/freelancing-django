@@ -10,15 +10,33 @@
 
 
 <div class="navbar">
-    <h3>SB Works (admin)</h3>
+    <a href="/admin"><h3>SB Works (admin)</h3></a>
 
     <div class="nav-options">
-        <p>Home</p>
-        <p>All users</p>
-        <p>Projects</p>
-        <p>Applications</p>
-        <p>Logout</p>
+        <a href="/admin"><p>Home</p></a>
+        <a href="/allUsers"><p>All users</p></a>
+        <a href="/adminProjects"><p>Projects</p></a>
+        <a href="/adminApplications"><p>Applications</p></a>
+        <p id="logoutBtn" >logout</p> 
     </div>
+
+    <script>
+
+      const myLink = document.getElementById('logoutBtn');
+  
+      myLink.addEventListener('click', function(event) {
+          event.preventDefault();
+  
+          localStorage.clear();
+          for (let key in localStorage) {
+              if (localStorage.hasOwnProperty(key)) {
+                  localStorage.removeItem(key);
+              }
+          }
+          window.location.href = '/';
+  
+      });
+  </script>
   </div>
 
 {% endblock %}

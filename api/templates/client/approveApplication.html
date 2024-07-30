@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+
+{% if success %}
+
+    <script>
+
+
+        alert("Application Approved..!!")
+
+        window.location.href = `/load-projectApplications`;
+
+    </script>
+
+{% endif %}
+
+{% endblock %}

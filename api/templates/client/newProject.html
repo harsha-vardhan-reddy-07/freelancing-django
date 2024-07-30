@@ -10,37 +10,46 @@
 
 {% include "client/navbar.html" %}
 
+{% if success %}
+    <script>
+        alert("New project added")
+        window.location.href = "/load-client"
+    </script>
+{% endif %}
+
 <div class="new-project-page">
 
     <h3>Post new project</h3>
 
-    <div class="new-project-form">
+    <form class="new-project-form" method="post">
 
-        <div class="form-floating">
-          <input type="text" class="form-control mb-3" id="floatingPassword" placeholder="Password"  />
+      {% csrf_token %}
+
+        <div class="form-floating mb-3">
+          {{form.title}}
           <label htmlFor="floatingPassword">Project title</label>
         </div>
 
-        <div class="form-floating">
-          <textarea type="text" class="form-control mb-3" id="floatingPassword" placeholder="Password"/>
+        <div class="form-floating mb-3">
+          {{form.description}}
           <label htmlFor="floatingPassword">Description</label>
         </div>
-
+        
         <span>
-          <div class="form-floating">
-            <input type="number" class="form-control mb-3" id="floatingPassword" placeholder="Password"/>
+          <div class="form-floating mb-3">
+            {{form.budget}}
             <label htmlFor="floatingPassword">Budget (in &#8377;)</label>
           </div>
 
-          <div class="form-floating">
-            <input type="text" class="form-control mb-3" id="floatingPassword" placeholder="Password"/>
+          <div class="form-floating mb-3">
+            {{form.skills}}
             <label htmlFor="floatingPassword">Required skills (seperate each with ,)</label>
           </div>
         </span>
 
-        <button class='btn' onClick={handleSubmit} >Submit</button>
+        <button class='btn' type="submit"  >Submit</button>
 
-    </div>
+      </form>
 
 </div>
 

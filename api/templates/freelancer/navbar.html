@@ -10,15 +10,33 @@
 
 
 <div class="navbar">
-    <h3>SB Works</h3>
+    <a href="/load-freelancer"><h3>SB Works</h3></a>
 
-    <div className="nav-options">
-        <p >Dashboard</p>
-        <p >All Projects</p>
-        <p >My Projects</p>
-        <p >Applications</p>
-        <p >Logout</p>
+    <div class="nav-options">
+        <a href="/load-freelancer"><p >Dashboard</p></a>
+        <a href="/load-allProjects"><p >All Projects</p></a>
+        <a href="/load-myProjects"><p >My Projects</p></a>
+        <a href="/load-myApplications"><p >Applications</p></a>
+        <p id="logoutBtn" >logout</p> 
     </div>
+
+    <script>
+
+      const myLink = document.getElementById('logoutBtn');
+  
+      myLink.addEventListener('click', function(event) {
+          event.preventDefault();
+  
+          localStorage.clear();
+          for (let key in localStorage) {
+              if (localStorage.hasOwnProperty(key)) {
+                  localStorage.removeItem(key);
+              }
+          }
+          window.location.href = '/';
+  
+      });
+  </script>
   </div>
 
 {% endblock %}

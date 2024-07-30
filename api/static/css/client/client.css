@@ -4,6 +4,11 @@
     margin-top: 5vh;
 }
 
+.client-projects-page a{
+    text-decoration: none;
+    color: black;
+}
+
 .client-projects-header{
 
     display: flex;

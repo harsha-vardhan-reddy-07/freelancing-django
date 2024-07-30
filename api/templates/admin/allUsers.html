@@ -10,34 +10,35 @@
 
 {% include "admin/navbar.html" %}
 
-<div className="all-users-page">
+<div class="all-users-page">
 
     <h3>All Users</h3>
 
-    <div className="all-users">
+    <div class="all-users">
 
-      {% comment %} {users.map((user)=>( {% endcomment %}
+      {% for user in users %}
 
-        <div className="user">
+        <div class="user">
             <span>
               <b>User Id</b>
-              <p>{user._id}</p>
+              <p>{{user.id}}</p>
             </span>
             <span>
               <b>Username</b>
-              <p>{user.username}</p>
+              <p>{{user.username}}</p>
             </span>
             <span>
               <b>Email</b>
-              <p>{user.email}</p>
+              <p>{{user.email}}</p>
             </span>
             <span>
               <b>User Role</b>
-              <p>{user.usertype}</p>
+              <p>{{user.usertype}}</p>
             </span>
 
         </div>
 
+      {% endfor %}
       
 
     </div>

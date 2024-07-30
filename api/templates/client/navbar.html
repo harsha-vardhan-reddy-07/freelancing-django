@@ -9,14 +9,32 @@
 {% block content %}
 
 <div class="navbar">
-    <h3>SB Works</h3>
+    <a href="/load-client"><h3>SB Works</h3></a>
 
     <div class="nav-options">
-        <p  >Dashboard</p>
-        <p  >New Project</p>
-        <p  >Applications</p>
-        <p >Logout</p>
+        <a href="/load-client"><p >Dashboard</p></a>
+        <a href="/load-newProject"><p >New Project</p></a>
+        <a href="/load-projectApplications"><p >Applications</p></a>
+        <p id="logoutBtn" >logout</p> 
     </div>
+
+    <script>
+
+      const myLink = document.getElementById('logoutBtn');
+  
+      myLink.addEventListener('click', function(event) {
+          event.preventDefault();
+  
+          localStorage.clear();
+          for (let key in localStorage) {
+              if (localStorage.hasOwnProperty(key)) {
+                  localStorage.removeItem(key);
+              }
+          }
+          window.location.href = '/';
+  
+      });
+  </script>
   </div>
 
 {% endblock %}
